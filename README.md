@@ -182,7 +182,7 @@ random.array({
         max: 60,
 		unique: true //generate the unique elements
     })
-=>[ 52, 59, 52, 60, 57 ]
+=>[ 52, 59, 54, 60, 57 ]
 
 random.array({
         elementType: "string",// string / char / number / int
