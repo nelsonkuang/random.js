@@ -1,11 +1,11 @@
 random.js
 =====
-####This is a general-purpose random data generates library.
+####This is a general-purpose random data generates library, Pull requests are welcome!
 - No dependencies
 - AMD, Node & browser ready
 
 ####Usage:
-
+===========
 Random data generates
 ===========
 
