@@ -4,9 +4,8 @@ random.js
 - No dependencies
 - AMD, Node & browser ready
 
-===========
 ####Usage:
-
+===========
 Random data generates
 ===========
 
