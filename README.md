@@ -5,7 +5,6 @@ random.js
 - AMD, Node & browser ready
 
 ####Usage:
-===========
 Random data generates
 ===========
 
