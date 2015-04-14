@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "random.js",
   "license": "MIT",
-  "description": "random data generate library",
+  "description": "random data generates library",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.0"
