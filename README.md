@@ -522,7 +522,7 @@ random.element({
         className: "item",//css className (filter 4)
         type: ""//button / checkbox / text / hidden / radio / text... (filter 5 - use along with 'elementType:input')
     })
-=> <p>4</p>
+=> <input type="text" name="txt4" />
 
 random.element({
         context: document.getElementById("wrapper"),
