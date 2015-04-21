@@ -481,6 +481,134 @@ random.degree(100);
 random.degree(20,80)
 => 52deg
 ```
+random.element(options)
+-------------------
+####Generate a random Element(Dom) to JSON:options, jQuery plugein like.
+Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
+```html
+    <div id="wrapper">
+        <div class="item">1</div>
+        <div class ="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+        </div>
+    </div>
+```
+```javascript
+random.element({
+        context: document.getElementById("wrapper")
+    })
+=> <input type="text" name="txt1">
+
+random.element({
+        context: document.getElementById("wrapper"),
+        elementType: "div",// * / div / span / ul / li ...(filter 1)   ("*" means all tags)
+        from: 3,//pick a element from the 3rd one (filter 2)
+        to: 9,//to the 9th one (filter 3)
+        className: "item",//css className (filter 4)
+        type: ""//button / checkbox / text / hidden / radio / text... (filter 5 - use along with 'elementType:input')
+    })
+=> <p>4</p>
+
+random.element({
+        context: document.getElementById("wrapper"),
+        elementType: "div",// div / span / ul / li ...(filter 1)
+    })
+=> <div class="item">9</div>
+
+random.element({
+        context: document.getElementById("wrapper"),
+        className: "item",//css className (filter 4)
+    })
+=> <div class="item">4</div>
+
+random.element({
+        context: document.getElementById("wrapper"),
+        elementType: "input",// div / span / ul / li ...(filter 1)
+        type: "text"//button / checkbox / text / hidden / radio / text... (filter 5 - use along with 'elementType:input')
+    })
+=> <input type="text" name="txt4">
+```
+
+random.childElement(options)
+-------------------
+####Generate a random Child Element(Dom) to JSON:options, jQuery plugein like.
+Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
+```javascript
+random.childElement({
+        context: document.getElementById("wrapper")
+    })
+=> <div class="item">4</div>
+
+random.childElement({
+        context: document.getElementById("wrapper"),
+        elementType: "div",// * / div / span / ul / li ...(filter 1)    ("*" means all tags)
+        from: 3,//pick a element from the 3rd one (filter 2)
+        to: 9,//to the 9th one (filter 3)
+        className: "item",//css className (filter 4)
+        type: ""//button / checkbox / text / hidden / radio / text... (filter 5 - use along with 'elementType:input')
+    })
+=> <div class="item">2</div>
+
+random.childElement({
+        context: document.getElementById("wrapper"),
+        elementType: "div",// div / span / ul / li ...(filter 1)
+    })
+=> <div class="item">9</div>
+
+random.childElement({
+        context: document.getElementById("wrapper"),
+        className: "item",//css className (filter 4)
+    })
+=> <div class="item">4</div>
+```
+
+random.siblingElement(options)
+-------------------
+####Generate a random Sibling Element(Dom) to JSON:options, jQuery plugein like.
+Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
+```javascript
+random.siblingElement({
+        context: document.getElementById("wrapper").children[1]
+    })
+=> <div class="item">6</div>
+
+random.siblingElement({
+        context: document.getElementById("wrapper").children[1],
+        elementType: "div",// * / div / span / ul / li ...(filter 1)   ("*" means all tags)
+        from: 3,//pick a element from the 3rd one (filter 2)
+        to: 9,//to the 9th one (filter 3)
+        className: "item",//css className (filter 4)
+        type: ""//button / checkbox / text / hidden / radio / text... (filter 5 - use along with 'elementType:input')
+    })
+=> <div class="item">2</div>
+
+random.siblingElement({
+        context: document.getElementById("wrapper").children[1],
+        elementType: "div",// div / span / ul / li ...(filter 1)
+    })
+=> <div class="item">9</div>
+
+random.siblingElement({
+        context: document.getElementById("wrapper").children[1],
+        className: "item",//css className (filter 4)
+    })
+=> <div class="item">4</div>
+```
 
 
 random.extend(target, source)
