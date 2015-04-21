@@ -497,14 +497,14 @@ Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
         <div class="item">8</div>
         <div class="item">9</div>
         <div class="item">
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
+            <input type="text" name="txt1" />
+            <input type="text" name="txt2" />
+            <input type="text" name="txt3" />
+            <input type="text" name="txt4" />
+            <input type="text" name="txt5" />
+            <input type="text" name="txt6" />
+            <input type="text" name="txt7" />
+            <input type="text" name="txt8" />
         </div>
     </div>
 ```
@@ -512,7 +512,7 @@ Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
 random.element({
         context: document.getElementById("wrapper")
     })
-=> <input type="text" name="txt1">
+=> <input type="text" name="txt7" />
 
 random.element({
         context: document.getElementById("wrapper"),
