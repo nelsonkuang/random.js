@@ -583,7 +583,138 @@
 
     // check if library is used as a Node.js module
     if (typeof window !== 'undefined') {
+        // want a random Element?
+        random.element = function (options) {
+            var defaults = {
+                context: document,
+                elementType: "*",// div / span / ul / li ...
+                from: 0,
+                to: "",
+                className: "",
+                type: ""//button / checkbox / text / hidden / radio / text...
+            },
+                resultArr = [];
+            options = random.extend(defaults, options);
+            if (toString.call(options.context) !== "[object Array]") {
+                resultArr = options.context.getElementsByTagName(options.elementType);
 
+            } else {
+                for (var n in options.context) {
+                    if(options.context[n].getElementsByTagName)
+                        push.call(resultArr, options.context[n].getElementsByTagName(options.elementType));
+                }
+            }
+
+            if (options.elementType == "input" && options.type != "") {
+                var tempArr = [];
+                for (var n in resultArr) {
+                    if (resultArr[n].type && resultArr[n].type == options.type) {
+                        push.call(tempArr, resultArr[n]);
+                    }
+                }
+                resultArr = tempArr;
+            }
+            if (options.className != "") {
+                var tempArr = [];
+                if (options.context.getElementsByClassName) {
+                    tempArr = options.context.getElementsByClassName(options.className);
+                } else {
+                    for (var n in resultArr) {
+                        if (resultArr[n].className && resultArr[n].className.indexOf(options.className) != -1) {
+                            push.call(tempArr, resultArr[n]);
+                        }
+                    }
+                }
+                resultArr = tempArr;
+            }
+            options.to = options.to == "" ? resultArr.length - 1 : (options.to > resultArr.length - 1 ? resultArr.length - 1 : options.to);
+            if (options.from > options.to) {
+                var temp = options.from; options.from = options.to; options.to = temp;
+            } else if (options.from < 0) { options.from = 0; }
+            return resultArr[random.integer(options.from,options.to)];
+        };
+        // want a random Child Element?
+        random.childElement = function (options) {
+            var defaults = {
+                context: document,
+                elementType: "*",// div / span / ul / li ...
+                from: 0,
+                to: "",
+                className: "",
+                type: ""//button / checkbox / text / hidden / radio / text...
+            },
+                resultArr = [];
+            options = random.extend(defaults, options);
+            if (toString.call(options.context) !== "[object Array]") {
+                resultArr = options.context.children;
+
+            } else {
+                for (var n in options.context) {
+                    if(options.context[n].children)
+                        push.call(resultArr, options.context[n].children);
+                }
+            }
+            if (options.elementType != "*") {
+                var tempArr = [],
+                    tagType = options.type.toUpperCase();
+                for (var n in resultArr) {
+                    if (resultArr[n].tagName && resultArr[n].tagName == tagType) {
+                        push.call(tempArr, resultArr[n]);
+                    }
+                }
+                resultArr = tempArr;
+            }
+            if (options.elementType == "input" && options.type != "") {
+                var tempArr = [];
+                for (var n in resultArr) {
+                    if (resultArr[n].type && resultArr[n].type == options.type) {
+                        push.call(tempArr, resultArr[n]);
+                    }
+                }
+                resultArr = tempArr;
+            }
+            if (options.className != "") {
+                var tempArr = [];
+                if (options.context.getElementsByClassName) {
+                    tempArr = options.context.getElementsByClassName(options.className);
+                } else {
+                    for (var n in resultArr) {
+                        if (resultArr[n].className && resultArr[n].className.indexOf(options.className) != -1) {
+                            push.call(tempArr, resultArr[n]);
+                        }
+                    }
+                }
+                resultArr = tempArr;
+            }
+            options.to = options.to == "" ? resultArr.length - 1 : (options.to > resultArr.length - 1 ? resultArr.length - 1 : options.to);
+            if (options.from > options.to) {
+                var temp = options.from; options.from = options.to; options.to = temp;
+            } else if (options.from < 0) { options.from = 0; }
+            return resultArr[random.integer(options.from,options.to)];
+        };
+        // want a random Sibling Element?
+        random.siblingElement = function (options) {
+            var defaults = {
+                context: "",
+                elementType: "*",// div / span / ul / li ...
+                from: 0,
+                to: "",
+                className: "",
+                type: ""//button / checkbox / text / hidden / radio / text...
+            },
+            resultElem,
+            tempElem = options.contex,
+            options = random.extend(defaults, options);
+            if (toString.call(options.context) !== "[object Array]") {
+                options.context = options.context.parentElement;
+                while (true) {
+                    resultElem = random.childElement(options);
+                    if (resultElem != tempElem) {
+                        return resultElem;
+                    }
+                }
+            }          
+        }
     }
 
     // Configuration methods
