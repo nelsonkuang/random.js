@@ -483,7 +483,7 @@ random.degree(20,80)
 ```
 random.element(options)
 -------------------
-####Generate a random Element(Dom) to JSON:options, jQuery plugein like.
+####Query a random Element(Dom) according to JSON:options, jQuery plugein like.
 Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
 ```html
     <div id="wrapper">
@@ -546,7 +546,7 @@ random.element({
 
 random.childElement(options)
 -------------------
-####Generate a random Child Element(Dom) to JSON:options, jQuery plugein like.
+####Query a random Child Element(Dom) according to JSON:options, jQuery plugein like.
 Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
 ```javascript
 random.childElement({
@@ -579,7 +579,7 @@ random.childElement({
 
 random.siblingElement(options)
 -------------------
-####Generate a random Sibling Element(Dom) to JSON:options, jQuery plugein like.
+####Query a random Sibling Element(Dom) according to JSON:options, jQuery plugein like.
 Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
 ```javascript
 random.siblingElement({
