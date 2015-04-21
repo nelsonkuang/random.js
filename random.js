@@ -620,7 +620,7 @@
                     tempArr = options.context.getElementsByClassName(options.className);
                 } else {
                     for (var n in resultArr) {
-                        if (resultArr[n].className && resultArr[n].className.indexOf(options.className) != -1) {
+                        if (resultArr[n].className && (" "+resultArr[n].className+" ").indexOf(" "+options.className+" ") != -1) {
                             push.call(tempArr, resultArr[n]);
                         }
                     }
@@ -679,7 +679,7 @@
                     tempArr = options.context.getElementsByClassName(options.className);
                 } else {
                     for (var n in resultArr) {
-                        if (resultArr[n].className && resultArr[n].className.indexOf(options.className) != -1) {
+                        if (resultArr[n].className && (" "+resultArr[n].className+" ").indexOf(" "+options.className+" ") != -1) {
                             push.call(tempArr, resultArr[n]);
                         }
                     }
