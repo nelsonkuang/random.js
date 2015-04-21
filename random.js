@@ -580,9 +580,10 @@
 
     // Environment checks
     /* -------------------------------------------------------------------------- */
-
     // check if library is used as a Node.js module
     if (typeof window !== 'undefined') {
+        // Dom generates
+        /* -------------------------------------------------------------------------- */    
         // want a random Element?
         random.element = function (options) {
             var defaults = {
