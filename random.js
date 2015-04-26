@@ -596,7 +596,7 @@
             },
                 resultArr = [];
             options = random.extend(defaults, options);
-            if (toString.call(options.context) !== "[object Array]") {
+            if (toString.call(options.context) !== "[object HTMLCollection]") {
                 resultArr = options.context.getElementsByTagName(options.elementType);
 
             } else {
@@ -646,7 +646,7 @@
             },
                 resultArr = [];
             options = random.extend(defaults, options);
-            if (toString.call(options.context) !== "[object Array]") {
+            if (toString.call(options.context) !== "[object HTMLCollection]") {
                 resultArr = options.context.children;
 
             } else {
@@ -706,7 +706,7 @@
             resultElem,
             tempElem = options.contex,
             options = random.extend(defaults, options);
-            if (toString.call(options.context) !== "[object Array]") {
+            if (toString.call(options.context) !== "[object HTMLCollection]") {
                 options.context = options.context.parentElement;
                 while (true) {
                     resultElem = random.childElement(options);
