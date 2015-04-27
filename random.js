@@ -1,4 +1,4 @@
-// random.js 0.1.0
+// random.js 0.1.1
 // Author: Nelson Kuang
 
 // AMD with global, Node, or global
