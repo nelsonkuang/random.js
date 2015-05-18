@@ -1,6 +1,6 @@
 random.js
 =====
-####This is a general-purpose random data(number,char,string,array,date,dom,color and so on) generates library, Pull requests are welcome!
+####This is a general-purpose random data(number,char,string,array,datetime,dom,color and so on) generates library, Pull requests are welcome!
 - No dependencies
 - AMD, Node & browser ready
 
