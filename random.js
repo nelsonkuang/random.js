@@ -20,7 +20,7 @@
         // Browser globals (root is window)
         root.random = factory(root.random);
     }
-}(this, function () {
+}(this, function (random) {
     // Baseline
     /* -------------------------------------------------------------------------- */
 
