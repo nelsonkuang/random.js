@@ -7,165 +7,165 @@ random.js
 Usage:
 ==============================
 
-random.number(min, max, tofixed)
+r.number(min, max, tofixed)
 ----------------------------------------------
 #####Generate a random float number from Number:min to Number:max, and use Integer:tofixed to control the decimal places.
 
 ```javascript
-random.number();
+r.number();
 => -1.383273644028584e+308
 
-random.number(100);
+r.number(100);
 => 97.1008624881506
 
-random.number(20,80)
+r.number(20,80)
 => 38.68204082828015
 
-random.number(20, 80, 2)
+r.number(20, 80, 2)
 => 20.51
 
 ```
 
-random.integer(min, max)
+r.integer(min, max)
 -------------------
 #####Generate a random integer number from Number:min to Number:max.
 
 ```javascript
-random.integer();
+r.integer();
 => 5062697414557695
 
-random.integer(100);
+r.integer(100);
 => 97
 
-random.integer(20,80)
+r.integer(20,80)
 => 52
 ```
 
-random.odd(min, max)
+r.odd(min, max)
 ---------------------
 #####Generate a random odd number from Number:min to Number:max.
 
 ```javascript
-random.odd();
+r.odd();
 => 6402980639145983
 
-random.odd(100);
+r.odd(100);
 => 25
 
-random.odd(20,80)
+r.odd(20,80)
 => 73
 ```
 
-random.even(min, max)
+r.even(min, max)
 ---------------------
 #####Generate a random even number from Number:min to Number:max.
 
 ```javascript
-random.even();
+r.even();
 => -3710708030111744
 
-random.even(100);
+r.even(100);
 => 88
 
-random.even(20,80)
+r.even(20,80)
 => 22
 ```
 
-random.char(seeds)
+r.char(seeds)
 -------------------
 #####Generate a random char from the String:seeds.
 Default seeds: "0123456789" + "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/? "
 
 ```javascript
-random.char();
+r.char();
 => R
 
-random.char("124578abcd-_")
+r.char("124578abcd-_")
 => a
 ```
 
-random.lowercaseChar(from, to)
+r.lowercaseChar(from, to)
 -------------------
 #####Generate a random lowercase char from String:from to String:to.
 Default seeds: "abcdefghijklmnopqrstuvwxyz"
 ```javascript
-random.lowercaseChar();
+r.lowercaseChar();
 => h
 
-random.lowercaseChar("f")
+r.lowercaseChar("f")
 => e
 
-random.lowercaseChar("e","p")
+r.lowercaseChar("e","p")
 => m
 ```
 
-random.uppercaseChar(from, to)
+r.uppercaseChar(from, to)
 -------------------
 #####Generate a random uppercase char from String:from to String:to.
 Default seeds: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 ```javascript
-random.uppercaseChar();
+r.uppercaseChar();
 => K
 
-random.uppercaseChar("F")
+r.uppercaseChar("F")
 => A
 
-random.uppercaseChar("E","P")
+r.uppercaseChar("E","P")
 => N
 ```
 
-random.punctuationChar()
+r.punctuationChar()
 -------------------
 #####Generate a random punctuation char.
 Default seeds: "`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/? "
 ```javascript
-random.punctuationChar();
+r.punctuationChar();
 => {
 ```
 
-random.charWithoutPun()
+r.charWithoutPun()
 -------------------
 #####Generate a random non-punctuation char.
 Default seeds: "0123456789" + "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 ```javascript
-random.charWithoutPun();
+r.charWithoutPun();
 => K
 ```
 
-random.charWithoutPuncUpper()
+r.charWithoutPuncUpper()
 -------------------
 #####Generate a random non-punctuation & non-uppercase char.
 Default seeds: "0123456789" + "abcdefghijklmnopqrstuvwxyz"
 ```javascript
-random.charWithoutPuncUpper();
+r.charWithoutPuncUpper();
 => k
 ```
 
-random.string(strLen, seeds)
+r.string(strLen, seeds)
 -------------------
 #####Generate a random string from the String:seeds and it's length is Number:strLen.
 Default seeds: "0123456789" + "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 ```javascript
-random.string();
+r.string();
 => djfkMjfkrjf5454E2136A2654wir4YifTIIjefiejw
 
-random.string("124578abcd-_KERTYUIOPABCD")
+r.string("124578abcd-_KERTYUIOPABCD")
 => DC_4c2-PK82a-Uc
 
-random.string(5);
+r.string(5);
 => k8M0e
 
-random.string(5, "124578abcd-_KERTYUIOPABCD")
+r.string(5, "124578abcd-_KERTYUIOPABCD")
 => d_UK8
 ```
 
-random.array(options)
+r.array(options)
 -------------------
 #####Generate a random array according to JSON:options, jQuery plugein like.
 Default:{elementType:"string", min:0, seeds:"0123456789" + "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ", unique:false, toFixed:2}
 ```javascript
-random.array({
+r.array({
         elementType: "int",// string / char / number / int
         arrLength: 5,//Array's length
         min: 51,
@@ -173,7 +173,7 @@ random.array({
     })
 =>[ 52, 59, 52, 60, 57 ]
 
-random.array({
+r.array({
         elementType: "int",// string / char / number / int
         arrLength: 5,
         min: 51,
@@ -182,7 +182,7 @@ random.array({
     })
 =>[ 52, 59, 54, 60, 57 ]
 
-random.array({
+r.array({
         elementType: "string",// string / char / number / int
         arrLength: 5,//array's length
         strLength: 3,//element's length
@@ -191,7 +191,7 @@ random.array({
     })
 =>[ "j18", "rkf", "if9", "r1e", "3jj" ]
 
-random.array({
+r.array({
         elementType: "number",// string / char / number / int
         arrLength: 5,//Array's length
         min: 51,
@@ -201,126 +201,126 @@ random.array({
 =>[ 52.3, 59.5, 52.6, 60.9, 57.3 ]
 ```
 
-random.arrayElement(array, startPos, endPos)
+r.arrayElement(array, startPos, endPos)
 ---------------------
 #####Get a random element from a given array,start position Integer:startPos & end postion Integer:endPos can be specified.
 
 ```javascript
-random.arrayElement([1, 3, 5, 6, 7, 8, 2, 10, 333])
+r.arrayElement([1, 3, 5, 6, 7, 8, 2, 10, 333])
 => 5
 
-random.arrayElement([1, 3, 5, 6, 7, 8, 2, 10, 333], 2)
+r.arrayElement([1, 3, 5, 6, 7, 8, 2, 10, 333], 2)
 => 6
 
-random.arrayElement([1, 3, 5, 6, 7, 8, 2, 10, 333], 2, 5)
+r.arrayElement([1, 3, 5, 6, 7, 8, 2, 10, 333], 2, 5)
 => 8
 ```
 
-random.arrayOrder(array, startPos, endPos)
+r.arrayOrder(array, startPos, endPos)
 ---------------------
 #####Break the elements' order in a given array,start position Integer:startPos & end postion Integer:endPos can be specified.
 
 ```javascript
-random.arrayOrder([1, 3, 5, 6, 7, 8, 2, 10, 333])
+r.arrayOrder([1, 3, 5, 6, 7, 8, 2, 10, 333])
 => [5, 6, 333, 7, 10, 2, 3, 1, 8]
 
-random.arrayOrder([1, 3, 5, 6, 7, 8, 2, 10, 333], 2)
+r.arrayOrder([1, 3, 5, 6, 7, 8, 2, 10, 333], 2)
 => [1, 3, 10, 8, 6, 333, 2, 5, 7]
 
-random.arrayOrder([1, 3, 5, 6, 7, 8, 2, 10, 333], 2, 5)
+r.arrayOrder([1, 3, 5, 6, 7, 8, 2, 10, 333], 2, 5)
 => [1, 3, 5, 8, 6, 7, 2, 10, 333]
 ```
 
-random.date(min, max)
+r.date(min, max)
 -------------------
 #####Generate a random date(Date Object) from String:min (etc. 1998-07-01 or 1998/7/1) to String:max (etc. 2015-07-28 or 2015/07/28).
 
 ```javascript
-random.date("1998-07-01", "2015-07-28")
+r.date("1998-07-01", "2015-07-28")
 => Fri Jul 27 2007 00:00:00 GMT+0800
 ```
 
-random.time(min, max)
+r.time(min, max)
 -------------------
 #####Generate a random time(Date Object) from Date:min (etc. new Date()) to Date:max (etc. new Date()).
 
 ```javascript
-random.time(new Date(2009, 11, 10, 5, 45, 18, 999), new Date(2015, 1, 31, 5, 59, 58, 888))
+r.time(new Date(2009, 11, 10, 5, 45, 18, 999), new Date(2015, 1, 31, 5, 59, 58, 888))
 => Wed Sep 05 2012 17:32:53 GMT+0800
 ```
 
-random.year(min, max)
+r.year(min, max)
 -------------------
 #####Generate a random year number from Number:min to Number:max.
 
 ```javascript
-random.year();
+r.year();
 => 5841
 
-random.year(1992);
+r.year(1992);
 => 3000
 
-random.year(1982,2000)
+r.year(1982,2000)
 => 1990
 ```
 
-random.month(min, max)
+r.month(min, max)
 -------------------
 #####Generate a random month number from Number:min to Number:max.
 
 ```javascript
-random.month();
+r.month();
 => 11
 
-random.month(2);
+r.month(2);
 => 8
 
-random.month(2,8)
+r.month(2,8)
 => 7
 ```
 
-random.day(min, max)
+r.day(min, max)
 -------------------
 #####Generate a random day number from Number:min to Number:max.
 
 ```javascript
-random.day();
+r.day();
 => 28
 
-random.day(2);
+r.day(2);
 => 20
 
-random.day(2,8)
+r.day(2,8)
 => 7
 ```
 
-random.hours(min, max)
+r.hours(min, max)
 -------------------
 #####Generate a random hours number from Number:min to Number:max.
 
 ```javascript
-random.hours();
+r.hours();
 => 23
 
-random.hours(2);
+r.hours(2);
 => 20
 
-random.hours(2,8)
+r.hours(2,8)
 => 7
 ```
 
-random.minutes(min, max)
+r.minutes(min, max)
 -------------------
 #####Generate a random minutes number from Number:min to Number:max.
 
 ```javascript
-random.minutes();
+r.minutes();
 => 58
 
-random.minutes(2);
+r.minutes(2);
 => 8
 
-random.minutes(2,8)
+r.minutes(2,8)
 => 6
 ```
 
@@ -329,158 +329,158 @@ random.seconds(min, max)
 #####Generate a random seconds number from Number:min to Number:max.
 
 ```javascript
-random.seconds();
+r.seconds();
 => 58
 
-random.seconds(2);
+r.seconds(2);
 => 8
 
-random.seconds(2,8)
+r.seconds(2,8)
 => 6
 ```
 
-random.milliseconds(min, max)
+r.milliseconds(min, max)
 -------------------
-#####Generate a random milliseconds number from Number:min to Number:max.
+#####Generate a r milliseconds number from Number:min to Number:max.
 
 ```javascript
-random.milliseconds();
+r.milliseconds();
 => 998
 
-random.milliseconds(50);
+r.milliseconds(50);
 => 100
 
-random.milliseconds(100,999)
+r.milliseconds(100,999)
 => 855
 ```
 
-random.color()
+r.color()
 -------------------
 #####Generate a random color(String like "#ffffff").
 
 ```javascript
-random.color();
+r.color();
 => #a30b9c
 ```
 
-random.rgbColor()
+r.rgbColor()
 -------------------
 #####Generate a random color(String like "rgb(12,255,0)").
 
 ```javascript
-random.rgbColor();
+r.rgbColor();
 => rgb(12,255,0)
 ```
 
-random.rgbaColor()
+r.rgbaColor()
 -------------------
 #####Generate a random color(String like "rgbaColor(12,255,0,0.4)").
 
 ```javascript
-random.rgbaColor();
+r.rgbaColor();
 => rgba(12,255,0,0.4)
 ```
 
-random.webColor()
+r.webColor()
 -------------------
 #####Generate a random web color(String like "#003399", "#66CCFF", "#000000", "#FFFFFF" .etc).
 Web color: 256 types in total
 ```javascript
-random.webColor();
+r.webColor();
 => #66FF00
 ```
 
-random.boolean()
+r.boolean()
 -------------------
 #####Generate a random boolean value
 
 ```javascript
-random.boolean();
+r.boolean();
 => true
 ```
 
-random.pixel(min, max)
+r.pixel(min, max)
 -------------------
 #####Generate a random pixel value(String)
 
 ```javascript
-random.pixel();
+r.pixel();
 => 5062697414557695px
 
-random.pixel(100);
+r.pixel(100);
 => 97px
 
-random.pixel(20,80)
+r.pixel(20,80)
 => 52px
 ```
 
 
-random.percent(min, max)
+r.percent(min, max)
 -------------------
 #####Generate a random percent value(String)
 
 ```javascript
-random.percent();
+r.percent();
 => 5062697414557695%
 
-random.percent(100);
+r.percent(100);
 => 97%
 
-random.percent(20,80)
+r.percent(20,80)
 => 52%
 ```
 
-random.em(min, max, tofixed)
+r.em(min, max, tofixed)
 -------------------
 #####Generate a random em value(String)
 
 ```javascript
-random.em();
+r.em();
 => -1.383273644028584e+308em
 
-random.em(100);
+r.em(100);
 => 97.1008624881506em
 
-random.em(20,80)
+r.em(20,80)
 => 38.68204082828015em
 
-random.em(20, 80, 2)
+r.em(20, 80, 2)
 => 20.51em
 ```
 
-random.rem(min, max, tofixed)
+r.rem(min, max, tofixed)
 -------------------
 #####Generate a random em value(String)
 
 ```javascript
-random.rem();
+r.rem();
 => 1.383273644028584e+308rem
 
-random.rem(100);
+r.rem(100);
 => 97.1008624881506rem
 
-random.rem(20,80)
+r.rem(20,80)
 => 38.68204082828015rem
 
-random.rem(20, 80, 2)
+r.rem(20, 80, 2)
 => 20.51rem
 ```
 
-random.degree(min, max)
+r.degree(min, max)
 -------------------
 #####Generate a random degree value(String)
 
 ```javascript
-random.degree();
+r.degree();
 => 5062697414557695deg
 
-random.degree(100);
+r.degree(100);
 => 97deg
 
-random.degree(20,80)
+r.degree(20,80)
 => 52deg
 ```
-random.element(options)
+r.element(options)
 -------------------
 #####Query a random Element(Dom) according to JSON:options, jQuery plugein like.
 Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
@@ -508,12 +508,12 @@ Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
     </div>
 ```
 ```javascript
-random.element({
+r.element({
         context: document.getElementById("wrapper")
     })
 => <input type="text" name="txt7" />
 
-random.element({
+r.element({
         context: document.getElementById("wrapper"),
         elementType: "div",// * / div / span / ul / li ...(filter 1)   ("*" means all tags)
         from: 3,//pick a element from the 3rd one (filter 2)
@@ -523,19 +523,19 @@ random.element({
     })
 => <input type="text" name="txt4" />
 
-random.element({
+r.element({
         context: document.getElementById("wrapper"),
         elementType: "div",// div / span / ul / li ...(filter 1)
     })
 => <div class="item">9</div>
 
-random.element({
+r.element({
         context: document.getElementById("wrapper"),
         className: "item",//css className (filter 4)
     })
 => <div class="item">4</div>
 
-random.element({
+r.element({
         context: document.getElementById("wrapper"),
         elementType: "input",// div / span / ul / li ...(filter 1)
         type: "text"//button / checkbox / text / hidden / radio / text... (filter 5 - use along with 'elementType:input')
@@ -543,17 +543,17 @@ random.element({
 => <input type="text" name="txt4">
 ```
 
-random.childElement(options)
+r.childElement(options)
 -------------------
 #####Query a random Child Element(Dom) according to JSON:options, jQuery plugein like.
 Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
 ```javascript
-random.childElement({
+r.childElement({
         context: document.getElementById("wrapper")
     })
 => <div class="item">4</div>
 
-random.childElement({
+r.childElement({
         context: document.getElementById("wrapper"),
         elementType: "div",// * / div / span / ul / li ...(filter 1)    ("*" means all tags)
         from: 3,//pick a element from the 3rd one (filter 2)
@@ -563,30 +563,30 @@ random.childElement({
     })
 => <div class="item">2</div>
 
-random.childElement({
+r.childElement({
         context: document.getElementById("wrapper"),
         elementType: "div",// div / span / ul / li ...(filter 1)
     })
 => <div class="item">9</div>
 
-random.childElement({
+r.childElement({
         context: document.getElementById("wrapper"),
         className: "item",//css className (filter 4)
     })
 => <div class="item">4</div>
 ```
 
-random.siblingElement(options)
+r.siblingElement(options)
 -------------------
 #####Query a random Sibling Element(Dom) according to JSON:options, jQuery plugein like.
 Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
 ```javascript
-random.siblingElement({
+r.siblingElement({
         context: document.getElementById("wrapper").children[1]
     })
 => <div class="item">6</div>
 
-random.siblingElement({
+r.siblingElement({
         context: document.getElementById("wrapper").children[1],
         elementType: "div",// * / div / span / ul / li ...(filter 1)   ("*" means all tags)
         from: 3,//pick a element from the 3rd one (filter 2)
@@ -596,13 +596,13 @@ random.siblingElement({
     })
 => <div class="item">2</div>
 
-random.siblingElement({
+r.siblingElement({
         context: document.getElementById("wrapper").children[1],
         elementType: "div",// div / span / ul / li ...(filter 1)
     })
 => <div class="item">9</div>
 
-random.siblingElement({
+r.siblingElement({
         context: document.getElementById("wrapper").children[1],
         className: "item",//css className (filter 4)
     })
@@ -610,13 +610,13 @@ random.siblingElement({
 ```
 
 
-random.extend(target, source)
+r.extend(target, source)
 -------------------
 #####jQuery like.
 - add your own methods if needed
 - copy Object:source's properties to Object:target
 ```javascript
-    random.extend({
+    r.extend({
         hello: function (str) {
             alert(str);
         },
@@ -624,11 +624,11 @@ random.extend(target, source)
             alert(str);
         }
     });
-    random.hello("Hi");
+    r.hello("Hi");
     => Hi
-    random.hi("Hello");
+    r.hi("Hello");
     => Hello
 
-	random.extend({foo:"bar",bar:"foo"},{foobar:"foobar"});
+	r.extend({foo:"bar",bar:"foo"},{foobar:"foobar"});
 	=>{foo:"bar",bar:"foo",foobar:"foobar"}
 ```
