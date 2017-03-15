@@ -73,7 +73,7 @@ r.even(20,80)
 
 r.char(seeds)
 -------------------
-#####Generate a random char from the String:seeds.
+##### Generate a random char from the String:seeds.
 Default seeds: "0123456789" + "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/? "
 
 ```javascript
