@@ -1,6 +1,6 @@
 random.js
 ===============
-#####This is a general-purpose random data(number,char,string,array,datetime,dom,color and so on) generates library, Pull requests are welcome!
+##### This is a general-purpose random data(number,char,string,array,datetime,dom,color and so on) generates library, Pull requests are welcome!
 - No dependencies
 - AMD, Node & browser ready
 
@@ -9,7 +9,7 @@ Usage:
 
 r.number(min, max, tofixed)
 ----------------------------------------------
-#####Generate a random float number from Number:min to Number:max, and use Integer:tofixed to control the decimal places.
+##### Generate a random float number from Number:min to Number:max, and use Integer:tofixed to control the decimal places.
 
 ```javascript
 r.number();
@@ -28,7 +28,7 @@ r.number(20, 80, 2)
 
 r.integer(min, max)
 -------------------
-#####Generate a random integer number from Number:min to Number:max.
+##### Generate a random integer number from Number:min to Number:max.
 
 ```javascript
 r.integer();
@@ -43,7 +43,7 @@ r.integer(20,80)
 
 r.odd(min, max)
 ---------------------
-#####Generate a random odd number from Number:min to Number:max.
+##### Generate a random odd number from Number:min to Number:max.
 
 ```javascript
 r.odd();
@@ -58,7 +58,7 @@ r.odd(20,80)
 
 r.even(min, max)
 ---------------------
-#####Generate a random even number from Number:min to Number:max.
+##### Generate a random even number from Number:min to Number:max.
 
 ```javascript
 r.even();
@@ -86,7 +86,7 @@ r.char("124578abcd-_")
 
 r.lowercaseChar(from, to)
 -------------------
-#####Generate a random lowercase char from String:from to String:to.
+##### Generate a random lowercase char from String:from to String:to.
 Default seeds: "abcdefghijklmnopqrstuvwxyz"
 ```javascript
 r.lowercaseChar();
@@ -101,7 +101,7 @@ r.lowercaseChar("e","p")
 
 r.uppercaseChar(from, to)
 -------------------
-#####Generate a random uppercase char from String:from to String:to.
+##### Generate a random uppercase char from String:from to String:to.
 Default seeds: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 ```javascript
 r.uppercaseChar();
@@ -116,7 +116,7 @@ r.uppercaseChar("E","P")
 
 r.punctuationChar()
 -------------------
-#####Generate a random punctuation char.
+##### Generate a random punctuation char.
 Default seeds: "`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/? "
 ```javascript
 r.punctuationChar();
@@ -125,7 +125,7 @@ r.punctuationChar();
 
 r.charWithoutPun()
 -------------------
-#####Generate a random non-punctuation char.
+##### Generate a random non-punctuation char.
 Default seeds: "0123456789" + "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 ```javascript
 r.charWithoutPun();
@@ -134,7 +134,7 @@ r.charWithoutPun();
 
 r.charWithoutPuncUpper()
 -------------------
-#####Generate a random non-punctuation & non-uppercase char.
+##### Generate a random non-punctuation & non-uppercase char.
 Default seeds: "0123456789" + "abcdefghijklmnopqrstuvwxyz"
 ```javascript
 r.charWithoutPuncUpper();
@@ -143,7 +143,7 @@ r.charWithoutPuncUpper();
 
 r.string(strLen, seeds)
 -------------------
-#####Generate a random string from the String:seeds and it's length is Number:strLen.
+##### Generate a random string from the String:seeds and it's length is Number:strLen.
 Default seeds: "0123456789" + "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 ```javascript
@@ -162,7 +162,7 @@ r.string(5, "124578abcd-_KERTYUIOPABCD")
 
 r.array(options)
 -------------------
-#####Generate a random array according to JSON:options, jQuery plugein like.
+##### Generate a random array according to JSON:options, jQuery plugein like.
 Default:{elementType:"string", min:0, seeds:"0123456789" + "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ", unique:false, toFixed:2}
 ```javascript
 r.array({
@@ -203,7 +203,7 @@ r.array({
 
 r.arrayElement(array, startPos, endPos)
 ---------------------
-#####Get a random element from a given array,start position Integer:startPos & end postion Integer:endPos can be specified.
+##### Get a random element from a given array,start position Integer:startPos & end postion Integer:endPos can be specified.
 
 ```javascript
 r.arrayElement([1, 3, 5, 6, 7, 8, 2, 10, 333])
@@ -218,7 +218,7 @@ r.arrayElement([1, 3, 5, 6, 7, 8, 2, 10, 333], 2, 5)
 
 r.arrayOrder(array, startPos, endPos)
 ---------------------
-#####Break the elements' order in a given array,start position Integer:startPos & end postion Integer:endPos can be specified.
+##### Break the elements' order in a given array,start position Integer:startPos & end postion Integer:endPos can be specified.
 
 ```javascript
 r.arrayOrder([1, 3, 5, 6, 7, 8, 2, 10, 333])
@@ -233,7 +233,7 @@ r.arrayOrder([1, 3, 5, 6, 7, 8, 2, 10, 333], 2, 5)
 
 r.date(min, max)
 -------------------
-#####Generate a random date(Date Object) from String:min (etc. 1998-07-01 or 1998/7/1) to String:max (etc. 2015-07-28 or 2015/07/28).
+##### Generate a random date(Date Object) from String:min (etc. 1998-07-01 or 1998/7/1) to String:max (etc. 2015-07-28 or 2015/07/28).
 
 ```javascript
 r.date("1998-07-01", "2015-07-28")
@@ -242,7 +242,7 @@ r.date("1998-07-01", "2015-07-28")
 
 r.time(min, max)
 -------------------
-#####Generate a random time(Date Object) from Date:min (etc. new Date()) to Date:max (etc. new Date()).
+##### Generate a random time(Date Object) from Date:min (etc. new Date()) to Date:max (etc. new Date()).
 
 ```javascript
 r.time(new Date(2009, 11, 10, 5, 45, 18, 999), new Date(2015, 1, 31, 5, 59, 58, 888))
@@ -251,7 +251,7 @@ r.time(new Date(2009, 11, 10, 5, 45, 18, 999), new Date(2015, 1, 31, 5, 59, 58, 
 
 r.year(min, max)
 -------------------
-#####Generate a random year number from Number:min to Number:max.
+##### Generate a random year number from Number:min to Number:max.
 
 ```javascript
 r.year();
@@ -266,7 +266,7 @@ r.year(1982,2000)
 
 r.month(min, max)
 -------------------
-#####Generate a random month number from Number:min to Number:max.
+##### Generate a random month number from Number:min to Number:max.
 
 ```javascript
 r.month();
@@ -296,7 +296,7 @@ r.day(2,8)
 
 r.hours(min, max)
 -------------------
-#####Generate a random hours number from Number:min to Number:max.
+##### Generate a random hours number from Number:min to Number:max.
 
 ```javascript
 r.hours();
@@ -311,7 +311,7 @@ r.hours(2,8)
 
 r.minutes(min, max)
 -------------------
-#####Generate a random minutes number from Number:min to Number:max.
+##### Generate a random minutes number from Number:min to Number:max.
 
 ```javascript
 r.minutes();
@@ -326,7 +326,7 @@ r.minutes(2,8)
 
 random.seconds(min, max)
 -------------------
-#####Generate a random seconds number from Number:min to Number:max.
+##### Generate a random seconds number from Number:min to Number:max.
 
 ```javascript
 r.seconds();
@@ -341,7 +341,7 @@ r.seconds(2,8)
 
 r.milliseconds(min, max)
 -------------------
-#####Generate a r milliseconds number from Number:min to Number:max.
+##### Generate a r milliseconds number from Number:min to Number:max.
 
 ```javascript
 r.milliseconds();
@@ -356,7 +356,7 @@ r.milliseconds(100,999)
 
 r.color()
 -------------------
-#####Generate a random color(String like "#ffffff").
+##### Generate a random color(String like "#ffffff").
 
 ```javascript
 r.color();
@@ -365,7 +365,7 @@ r.color();
 
 r.rgbColor()
 -------------------
-#####Generate a random color(String like "rgb(12,255,0)").
+##### Generate a random color(String like "rgb(12,255,0)").
 
 ```javascript
 r.rgbColor();
@@ -374,7 +374,7 @@ r.rgbColor();
 
 r.rgbaColor()
 -------------------
-#####Generate a random color(String like "rgbaColor(12,255,0,0.4)").
+##### Generate a random color(String like "rgbaColor(12,255,0,0.4)").
 
 ```javascript
 r.rgbaColor();
@@ -383,7 +383,7 @@ r.rgbaColor();
 
 r.webColor()
 -------------------
-#####Generate a random web color(String like "#003399", "#66CCFF", "#000000", "#FFFFFF" .etc).
+##### Generate a random web color(String like "#003399", "#66CCFF", "#000000", "#FFFFFF" .etc).
 Web color: 256 types in total
 ```javascript
 r.webColor();
@@ -392,7 +392,7 @@ r.webColor();
 
 r.boolean()
 -------------------
-#####Generate a random boolean value
+##### Generate a random boolean value
 
 ```javascript
 r.boolean();
@@ -401,7 +401,7 @@ r.boolean();
 
 r.pixel(min, max)
 -------------------
-#####Generate a random pixel value(String)
+##### Generate a random pixel value(String)
 
 ```javascript
 r.pixel();
@@ -417,7 +417,7 @@ r.pixel(20,80)
 
 r.percent(min, max)
 -------------------
-#####Generate a random percent value(String)
+##### Generate a random percent value(String)
 
 ```javascript
 r.percent();
@@ -432,7 +432,7 @@ r.percent(20,80)
 
 r.em(min, max, tofixed)
 -------------------
-#####Generate a random em value(String)
+##### Generate a random em value(String)
 
 ```javascript
 r.em();
@@ -450,7 +450,7 @@ r.em(20, 80, 2)
 
 r.rem(min, max, tofixed)
 -------------------
-#####Generate a random em value(String)
+##### Generate a random em value(String)
 
 ```javascript
 r.rem();
@@ -468,7 +468,7 @@ r.rem(20, 80, 2)
 
 r.degree(min, max)
 -------------------
-#####Generate a random degree value(String)
+##### Generate a random degree value(String)
 
 ```javascript
 r.degree();
@@ -482,7 +482,7 @@ r.degree(20,80)
 ```
 r.element(options)
 -------------------
-#####Query a random Element(Dom) according to JSON:options, jQuery plugein like.
+##### Query a random Element(Dom) according to JSON:options, jQuery plugein like.
 Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
 ```html
     <div id="wrapper">
@@ -545,7 +545,7 @@ r.element({
 
 r.childElement(options)
 -------------------
-#####Query a random Child Element(Dom) according to JSON:options, jQuery plugein like.
+##### Query a random Child Element(Dom) according to JSON:options, jQuery plugein like.
 Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
 ```javascript
 r.childElement({
@@ -578,7 +578,7 @@ r.childElement({
 
 r.siblingElement(options)
 -------------------
-#####Query a random Sibling Element(Dom) according to JSON:options, jQuery plugein like.
+##### Query a random Sibling Element(Dom) according to JSON:options, jQuery plugein like.
 Default:{context:document, elementType:"*", from:0, to:"", className:"",type:""}
 ```javascript
 r.siblingElement({
@@ -612,7 +612,7 @@ r.siblingElement({
 
 r.extend(target, source)
 -------------------
-#####jQuery like.
+##### jQuery like.
 - add your own methods if needed
 - copy Object:source's properties to Object:target
 ```javascript
