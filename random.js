@@ -1,8 +1,8 @@
 (function (root, factory) {
 
-    if (typeof define === "function" && define.amd) {
+    if (typeof define === 'function' && define.amd) {
         define(factory);
-    } else if (typeof exports === "object") {
+    } else if (typeof exports === 'object') {
         module.exports = factory();
     } else {
         root.r = factory();
@@ -23,9 +23,9 @@
     var maxNumber = Number.MAX_VALUE,
         maxInteger = 9007199254740991,
         minInteger = -9007199254740991,
-        numberChars = "0123456789",
-        lowercaseChars = "abcdefghijklmnopqrstuvwxyz",
-        uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        numberChars = '0123456789',
+        lowercaseChars = 'abcdefghijklmnopqrstuvwxyz',
+        uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
         punctuationChars = "`~!@#$%^&*()-_=+[{]}\\|;:'\",<.>/? ",
         charsWithoutPunctuation = numberChars + lowercaseChars + uppercaseChars,
         charsWithoutPuncUpper = numberChars + lowercaseChars,
@@ -55,7 +55,7 @@
             max = arguments[0] > 0 ? arguments[0] : 0;
             min = arguments[0] < 0 ? arguments[0] : 0;
         }
-        return tofixed ? toFixed.call((min * (1 - ran) + max * ran),tofixed) : (min * (1 - ran) + max * ran);//min + (max - min)*ran
+        return tofixed ? toFixed.call((min * (1 - ran) + max * ran), tofixed) : (min * (1 - ran) + max * ran);//min + (max - min)*ran
     };
     // want a r Integer?
     r.integer = function (min, max) {
@@ -96,7 +96,7 @@
     // want a random Char?
     r.char = function (seeds) {
         var sLen = 0;
-        if (typeof (seeds) == "string" && (sLen = seeds.length) > 1)
+        if (typeof (seeds) == 'string' && (sLen = seeds.length) > 1)
             return seeds.charAt(r.integer(sLen - 1));
         else
             return allChars.charAt(r.integer(allChars.length - 1));
@@ -161,7 +161,7 @@
     };
     // want a random String?
     r.string = function (strLen, seeds) {
-        var str = "";
+        var str = '';
         switch (arguments.length) {
             case 0:
                 strLen = r.integer(2, 62);
@@ -169,10 +169,10 @@
                 break;
             case 1:
                 var argType;
-                if ((argType = typeof (arguments[0])) == "number" && arguments[0] > 1) {
+                if ((argType = typeof (arguments[0])) == 'number' && arguments[0] > 1) {
                     seeds = charsWithoutPunctuation;
                 }
-                else if (argType == "string" && arguments[0].length > 1) {
+                else if (argType == 'string' && arguments[0].length > 1) {
                     seeds = arguments[0];
                     strLen = r.integer(2, 62);
                 }
@@ -183,12 +183,12 @@
                 break;
             case 2:
                 var arg1 = arguments[0], arg2 = arguments[1];
-                if (typeof (arguments[0]) == "number" && arg1 > 1) {
+                if (typeof (arguments[0]) == 'number' && arg1 > 1) {
                     strLen = arguments[0];
                 } else {
                     strLen = r.integer(2, 62);
                 }
-                if (typeof (arguments[1]) == "string" && arg2.length > 1) {
+                if (typeof (arguments[1]) == 'string' && arg2.length > 1) {
                     seeds = arguments[1];
                 } else {
                     seeds = charsWithoutPunctuation;
@@ -204,12 +204,21 @@
         return str;
     };
 
+    // want a new random order string from an string?
+    r.stringOrder = function (str) {
+        if (str !== '') {
+            return r.arrayOrder(str.split('')).join('');
+        } else {
+            return '';
+        }
+    }
+
     // Array generates
     /* -------------------------------------------------------------------------- */
     // want a random Array?
     r.array = function (options) {
         var defaults = {
-            elementType: "string",// string / char / number / int
+            elementType: 'string',// string / char / number / int
             arrLength: r.integer(2, 62),
             min: 0,
             max: maxInteger,
@@ -222,7 +231,7 @@
         if (options.min && options.min > options.max) { var tem = options.max; options.max = options.min; options.min = tem; }//input wrong args? swap them
         options = r.extend(defaults, options);
         switch (options.elementType) {
-            case "string":
+            case 'string':
                 if (!options.unique) {
                     for (var i = 0; i < options.arrLength; i++) {
                         arrResult.push(r.string(options.strLength, options.seeds));
@@ -240,7 +249,7 @@
                     }
                 }
                 break;
-            case "char":
+            case 'char':
                 if (!options.unique) {
                     for (var i = 0; i < options.arrLength; i++) {
                         arrResult.push(r.char(options.seeds));
@@ -256,13 +265,13 @@
                                 done = true;
                             }
                             else {
-                                seeds = seeds.split(chr).join("");
+                                seeds = seeds.split(chr).join('');
                             }
                         }
                     }
                 }
                 break;
-            case "number":
+            case 'number':
                 if (!options.unique) {
                     for (var i = 0; i < options.arrLength; i++) {
                         arrResult.push(r.number(options.min, options.max, options.toFixed));
@@ -280,7 +289,7 @@
                     }
                 }
                 break;
-            case "int":
+            case 'int':
                 if (!options.unique) {
                     for (var i = 0; i < options.arrLength; i++) {
                         arrResult.push(r.integer(options.min, options.max));
@@ -288,7 +297,7 @@
                 } else {
                     var gap;
                     if ((gap = options.max - options.min + 1) < options.arrLength) {
-                        console.log("Error! Please check your args, arrLength > (max - min +1) ?");
+                        console.log('Error! Please check your args, arrLength > (max - min +1) ?');
                         return;
                     } else if (gap < options.arrLength * 2) {
                         var tempArr = [];
@@ -318,7 +327,7 @@
                 for (var i = 0; i < options.arrLength; i++) {
                     arrResult.push(r.string(options.strLength, options.seeds));
                 }
-                console.log("Ok, I will give you a string array - -!");
+                console.log('Ok, I will give you a string array - -!');
         }
         return arrResult;
     };
@@ -327,11 +336,11 @@
         var argsLen = arguments.length;
         if (argsLen == 0) {
             return;
-        } else if (argsLen == 1 && toString.call(arguments[0]) == "[object Array]" && array.length > 1) {
+        } else if (argsLen == 1 && toString.call(arguments[0]) == '[object Array]' && array.length > 1) {
             startPos = 0;
             endPos = array.length - 1;
-        } else if (argsLen == 2 && toString.call(arguments[0]) == "[object Array]" && array.length > 1) {
-            if (typeof (arguments[1]) == "number" && 0 <= startPos && startPos < array.length) {
+        } else if (argsLen == 2 && toString.call(arguments[0]) == '[object Array]' && array.length > 1) {
+            if (typeof (arguments[1]) == 'number' && 0 <= startPos && startPos < array.length) {
                 endPos = array.length - 1;
             }
             else {
@@ -339,11 +348,11 @@
                 endPos = array.length - 1;
             }
         } else {
-            if (toString.call(arguments[0]) == "[object Array]" && array.length > 1) {
-                if (typeof (arguments[1]) != "number" || 0 > startPos || startPos > (array.length-1)) {
+            if (toString.call(arguments[0]) == '[object Array]' && array.length > 1) {
+                if (typeof (arguments[1]) != 'number' || 0 > startPos || startPos > (array.length-1)) {
                     startPos = 0;
                 }
-                if (typeof (arguments[2]) != "number" || 0 > endPos || endPos > (array.length-1)) {
+                if (typeof (arguments[2]) != 'number' || 0 > endPos || endPos > (array.length-1)) {
                     endPos = array.length - 1;
                 }
                 if (startPos > endPos) { var tem = endPos; endPos = startPos; startPos = tem; }
@@ -354,7 +363,7 @@
         return array[r.integer(startPos, endPos)];
     };
     // want a new random order array from an Array?
-    r.arrayOrder = function (array, startPos, endPos) {//use strict :(
+    r.arrayOrder = function (array, startPos, endPos) { // use strict :(
         var argsLen = arguments.length;
         if (argsLen == 0) { return array; }
         else if (argsLen == 1) {
@@ -478,14 +487,14 @@
             case 0:
                 break;
             case 1:
-                var arrMin = min.indexOf("-") > -1 ? min.split("-") : min.split("/");
+                var arrMin = min.indexOf('-') > -1 ? min.split('-') : min.split('/');
                 minDate.setFullYear(parseInt(arrMin[0]));
                 minDate.setMonth(parseInt(arrMin[1]));
                 minDate.setDate(parseInt(arrMin[2]));
                 break;
             default:
-                var arrMin = min.indexOf("-") > -1 ? min.split("-") : min.split("/"),
-                    arrMax = max.indexOf("-") > -1 ? max.split("-") : max.split("/");
+                var arrMin = min.indexOf('-') > -1 ? min.split('-') : min.split('/'),
+                    arrMax = max.indexOf('-') > -1 ? max.split('-') : max.split('/');
                 minDate.setFullYear(parseInt(arrMin[0]));
                 minDate.setMonth(parseInt(arrMin[1]) - 1);
                 minDate.setDate(parseInt(arrMin[2]));
@@ -523,21 +532,21 @@
     /* -------------------------------------------------------------------------- */
     // want a random Color?
     r.color = function () {
-        return "#" + ("00000" + r.integer(mathPow(16, 6) - 1).toString(16)).substr(-6);
+        return '#' + ('00000' + r.integer(mathPow(16, 6) - 1).toString(16)).substr(-6);
     };
     // want a random Rbg Color?
     r.rgbColor = function () {
-        return "rgb(" + r.integer(255) + "," + r.integer(255) + "," + r.integer(255) + ")";
+        return 'rgb(' + r.integer(255) + ',' + r.integer(255) + ',' + r.integer(255) + ')';
     };
     // want a random Rbga Color?
     r.rgbaColor = function () {
-        return "rbga(" + r.integer(255) + "," + r.integer(255) + "," + r.integer(255) + "," + mathRandom().toFixed(1) + ")";
+        return 'rbga(' + r.integer(255) + ',' + r.integer(255) + ',' + r.integer(255) + ',' + mathRandom().toFixed(1) + ')';
     };
     // want a random Web Color(256 types in total)?
     r.webColor = function () {
-        var arr = ["","",""],
-            seeds = "0369CF";
-        return "#" + arr.join(r.char(seeds)) + arr.join(r.char(seeds)) + arr.join(r.char(seeds));
+        var arr = ['','',''],
+            seeds = '0369CF';
+        return '#' + arr.join(r.char(seeds)) + arr.join(r.char(seeds)) + arr.join(r.char(seeds));
     };
     // Others generate
     /* -------------------------------------------------------------------------- */
@@ -547,23 +556,23 @@
     };
     // want a random Pixel?
     r.pixel = function (min, max) {
-        return r.integer.apply(this, arguments) + "px";
+        return r.integer.apply(this, arguments) + 'px';
     };
     // want a random Percent?
     r.percent = function (min, max) {
-        return r.integer.apply(this, arguments) + "%";
+        return r.integer.apply(this, arguments) + '%';
     };
     // want a random Em?
     r.em = function (min, max, tofixed) {
-        return r.number.apply(this, arguments) + "em";
+        return r.number.apply(this, arguments) + 'em';
     };
     // want a random Rem?
     r.rem = function (min, max, tofixed) {
-        return r.number.apply(this, arguments) + "rem";
+        return r.number.apply(this, arguments) + 'rem';
     };
     // want a random Degree?
     r.degree = function (min, max) {
-        return r.integer.apply(this, arguments) + "deg";
+        return r.integer.apply(this, arguments) + 'deg';
     };
 
     // Environment checks
@@ -576,15 +585,15 @@
         r.element = function (options) {
             var defaults = {
                 context: document,
-                elementType: "*",// div / span / ul / li ...
+                elementType: '*',// div / span / ul / li ...
                 from: 0,
-                to: "",
-                className: "",
-                type: ""//button / checkbox / text / hidden / radio / text...
+                to: '',
+                className: '',
+                type: ''//button / checkbox / text / hidden / radio / text...
             },
                 resultArr = [];
             options = r.extend(defaults, options);
-            if (toString.call(options.context) !== "[object HTMLCollection]") {
+            if (toString.call(options.context) !== '[object HTMLCollection]') {
                 resultArr = options.context.getElementsByTagName(options.elementType);
 
             } else {
@@ -594,7 +603,7 @@
                 }
             }
 
-            if (options.elementType == "input" && options.type != "") {
+            if (options.elementType == 'input' && options.type != '') {
                 var tempArr = [];
                 for (var n in resultArr) {
                     if (resultArr[n].type && resultArr[n].type == options.type) {
@@ -603,20 +612,20 @@
                 }
                 resultArr = tempArr;
             }
-            if (options.className != "") {
+            if (options.className != '') {
                 var tempArr = [];
                 if (options.context.getElementsByClassName) {
                     tempArr = options.context.getElementsByClassName(options.className);
                 } else {
                     for (var n in resultArr) {
-                        if (resultArr[n].className && (" "+resultArr[n].className+" ").indexOf(" "+options.className+" ") != -1) {
+                        if (resultArr[n].className && (' '+resultArr[n].className+' ').indexOf(' '+options.className+' ') != -1) {
                             push.call(tempArr, resultArr[n]);
                         }
                     }
                 }
                 resultArr = tempArr;
             }
-            options.to = options.to == "" ? resultArr.length - 1 : (options.to > resultArr.length - 1 ? resultArr.length - 1 : options.to);
+            options.to = options.to == '' ? resultArr.length - 1 : (options.to > resultArr.length - 1 ? resultArr.length - 1 : options.to);
             if (options.from > options.to) {
                 var temp = options.from; options.from = options.to; options.to = temp;
             } else if (options.from < 0) { options.from = 0; }
@@ -626,15 +635,15 @@
         r.childElement = function (options) {
             var defaults = {
                 context: document,
-                elementType: "*",// div / span / ul / li ...
+                elementType: '*',// div / span / ul / li ...
                 from: 0,
-                to: "",
-                className: "",
-                type: ""//button / checkbox / text / hidden / radio / text...
+                to: '',
+                className: '',
+                type: ''//button / checkbox / text / hidden / radio / text...
             },
                 resultArr = [];
             options = r.extend(defaults, options);
-            if (toString.call(options.context) !== "[object HTMLCollection]") {
+            if (toString.call(options.context) !== '[object HTMLCollection]') {
                 resultArr = options.context.children;
 
             } else {
@@ -643,7 +652,7 @@
                         push.call(resultArr, options.context[n].children);
                 }
             }
-            if (options.elementType != "*") {
+            if (options.elementType != '*') {
                 var tempArr = [],
                     tagType = options.type.toUpperCase();
                 for (var n in resultArr) {
@@ -653,7 +662,7 @@
                 }
                 resultArr = tempArr;
             }
-            if (options.elementType == "input" && options.type != "") {
+            if (options.elementType == 'input' && options.type != '') {
                 var tempArr = [];
                 for (var n in resultArr) {
                     if (resultArr[n].type && resultArr[n].type == options.type) {
@@ -662,20 +671,20 @@
                 }
                 resultArr = tempArr;
             }
-            if (options.className != "") {
+            if (options.className != '') {
                 var tempArr = [];
                 if (options.context.getElementsByClassName) {
                     tempArr = options.context.getElementsByClassName(options.className);
                 } else {
                     for (var n in resultArr) {
-                        if (resultArr[n].className && (" "+resultArr[n].className+" ").indexOf(" "+options.className+" ") != -1) {
+                        if (resultArr[n].className && (' '+resultArr[n].className+' ').indexOf(' '+options.className+' ') != -1) {
                             push.call(tempArr, resultArr[n]);
                         }
                     }
                 }
                 resultArr = tempArr;
             }
-            options.to = options.to == "" ? resultArr.length - 1 : (options.to > resultArr.length - 1 ? resultArr.length - 1 : options.to);
+            options.to = options.to == '' ? resultArr.length - 1 : (options.to > resultArr.length - 1 ? resultArr.length - 1 : options.to);
             if (options.from > options.to) {
                 var temp = options.from; options.from = options.to; options.to = temp;
             } else if (options.from < 0) { options.from = 0; }
@@ -684,17 +693,17 @@
         // want a random Sibling Element?
         r.siblingElement = function (options) {
             var defaults = {
-                context: "",
-                elementType: "*",// div / span / ul / li ...
+                context: '',
+                elementType: '*',// div / span / ul / li ...
                 from: 0,
-                to: "",
-                className: "",
-                type: ""//button / checkbox / text / hidden / radio / text...
+                to: '',
+                className: '',
+                type: ''//button / checkbox / text / hidden / radio / text...
             },
             resultElem,
             tempElem = options.contex,
             options = r.extend(defaults, options);
-            if (toString.call(options.context) !== "[object HTMLCollection]") {
+            if (toString.call(options.context) !== '[object HTMLCollection]') {
                 options.context = options.context.parentElement;
                 while (true) {
                     resultElem = r.childElement(options);
@@ -720,8 +729,8 @@
             alert(str);
         }
     });
-    r.hello("Hi");
-    r.hi("Hello");
+    r.hello('Hi');
+    r.hi('Hello');
     **/
     // => Hi
     // => Hello
